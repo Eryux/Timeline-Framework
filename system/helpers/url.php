@@ -1,0 +1,65 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * TimeLine
+ * An open source PHP micro-framework based on CodeIgniter Framework.
+ *
+ * The MIT License (MIT)
+ * Copyright (c) 2015 Candia Nicolas
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @licence		MIT
+ * @author 		Candia Nicolas
+ * @copyright	Copyright (c) 2014, Candia Nicolas
+ */
+ 
+if ( ! function_exists('getURL')) {
+
+	function getURL($controller = '', $method = '', $params = array()) {
+		$cfg =& getConfig();
+		$url = 'index.php?';
+		
+		if ($controller != '')
+			$url .= $cfg['controllerParam'] . '=' . urlencode($controller) . '&';
+		
+		if ($method != '')
+			$url .= $cfg['methodParam'] . '=' . urlencode($method) . '&';
+			
+		if (is_array($params) && count($params) > 0) {
+			foreach ($params as $key => $value) {
+				$url .= urlencode($key) . '=' . urlencode($value) . '&';
+			}
+		}
+		
+		return substr($url, 0, strlen($url) - 1);
+	}
+
+}
+
+if ( ! function_exists('redirectTo')) {
+	
+	function redirectTo($url) {
+		header("Location: {$url}");
+		exit();
+	}
+	
+}
+
+/* End of file url.php */
+/* Location : ./system/helpers/url.php */
