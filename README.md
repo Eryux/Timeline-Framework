@@ -44,20 +44,20 @@ Timeline is a micro PHP framework. Designed for small website project, it's easy
 
 #### Folder hierarchy
 
-⋅⋅* apps/ : Contains files and folders of the application
-⋅⋅⋅⋅* apps/configs : Configuration files
-⋅⋅⋅⋅* apps/hooks : Hooks files
-⋅⋅⋅⋅* apps/langs : Localization files
-⋅⋅⋅⋅* apps/models : Model files
-⋅⋅⋅⋅* apps/modules : Controller files
-⋅⋅⋅⋅* apps/views : View files
-⋅⋅⋅⋅* apps/widget : Widget files
-⋅⋅* system/ : Contains files and folders of framework
-⋅⋅⋅⋅* system/core : Core files
-⋅⋅⋅⋅* system/helpers : Helper files
-⋅⋅⋅⋅* system/libraries : Library files
-⋅⋅⋅⋅* system/vendors : External library (like Twig)
-⋅⋅* public/ : Contains static files that can be accessed publicaly (css, images, js etc...)
+* apps/ : Contains files and folders of the application
+    * apps/configs : Configuration files
+    * apps/hooks : Hooks files
+    * apps/langs : Localization files
+    * apps/models : Model files
+    * apps/modules : Controller files
+    * apps/views : View files
+    * apps/widget : Widget files
+* system/ : Contains files and folders of framework
+    * system/core : Core files
+    * system/helpers : Helper files
+    * system/libraries : Library files
+    * system/vendors : External library (like Twig)
+* public/ : Contains static files that can be accessed publicaly (css, images, js etc...)
 
 #### Controller
 
@@ -232,8 +232,6 @@ class Foo extends Controller {
 }
 ```
 
-##### Rules
-
 Rule | Usage
 --- | --- 
 required | Field must exist in data
@@ -252,15 +250,9 @@ alphaExt | Field contains letter, number and - space and _
 email | Field must be an email
 check[str] | Field must match to regular expression in parameter
 
-##### Error
 
 You can check if your form has error with method `$this->vform->hasError()`. To display error, use `$this->vform->getError()`. 
 Inside a view, vform library automatically load a helper that help you to retrieve form error, you can use `hasErrorForm()` and `getErrorForm()`.
-
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
 
 #### Undocumented features
 
